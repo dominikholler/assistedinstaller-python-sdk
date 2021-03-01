@@ -6,7 +6,7 @@ from http import HTTPStatus
 import requests
 
 
-# sudo podman run -it --rm centos:8 bash
+# podman run -it --rm centos:8 bash
 # dnf install -y 'dnf-command(copr)' &&  dnf copr -y enable ocm/tools && dnf install -y ocm-cli
 # get token for ocm from https://cloud.redhat.com/openshift/token
 # ocm login --token eyXXX
