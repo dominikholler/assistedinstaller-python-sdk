@@ -9,7 +9,7 @@ cluster = installer.get_by_name(installer.get_clusters(), 'hcs')
 
 
 installer.patch_cluster(cluster_id=cluster['id'], attributes={
-     'base_dns_domain': 'lab.eng.tlv2.redhat.com',
+     'base_dns_domain': 'hcs.rhev.lab.eng.brq.redhat.com',
 })
 
 installer_args = {
