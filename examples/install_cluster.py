@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
 
+import os
 import time
 
 from assistedinstaller import AssistedInstaller
 
 installer = AssistedInstaller()
 
+
+def get_pull_secret():
+    try:
+        return os.environ['PULL_SECRET']
+    except KeyError:
+        raise Exception('PULL_SECRET')
+
+
+
 ssh_public_key = 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXi1ndSgGeVrrwYiEUJpntj1e3EjKaahSPnDIrBCxo3SS677DfFHB7KQ0hg0d0X7gysh4zx/ZmucH8w1Tmd7lYlFptWw8ULrDc2+9tP688dl6E5uzjQqtv+eghkXkKL7hhkyrpIdtRWO4Nl8CBm2ECtLqr7lXYL9jwU+BKYP+dm47DQVQy1MFFA5GhCIX+mV7Oa8p8g2tJ3CBmkNKkPYAQFhrVoRnynMQFT1u0LpxLoYS8z7koArPkjClU/Sg9q5T35AlYBGBTQxA71y15eHcf2cfpGYZVgNkIjEoucPBVmKbsZscyTAjl1ejie0w2en8FTfJf6rvTpkvwgQD4hR/JqwbSUBtE+14RY53xDV79dbDT3uvpbxmD9AJwlJYoB8cSMKa7bPRyWLsKms+L/CSdVI9+2Bpae5tKTKVbcZslVGcuCw2yqnZcNI92LgyTmo+P4/WSoHlE0iqqk8GppUGg5+VlW5AktZrsAwGbs0IFm8+R/bw6xoU6sMzgWjTXVn8= dominik@t460p'
-pull_secret =  'get it from https://cloud.redhat.com/openshift/create/local'
+pull_secret = get_pull_secret()
 cluster_name = 'automated'
 machine_network_cidr = '192.168.4.0/24'
 base_dns_domain = 'ai.vlan'
